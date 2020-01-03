@@ -5,10 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DTE"
         mc:Ignorable="d"
-        Title="Dienstplaninator" Height="150" Width="450">
+        Title="Dienstplaninator" Height="326" Width="357" ResizeMode="CanMinimize">
     <Grid Margin="0,0,0,0">
-        <Calendar Margin="0,0,260.2,79.8" VerticalAlignment="Bottom" Height="32"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="232,15,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-
+        <Rectangle Fill="#FFF4F4F5" Margin="10,9,10,10" Stroke="Black"/>
+        <Button Content="Erstellen" Margin="10,0,10,10" Height="65" VerticalAlignment="Bottom" FontSize="36" FontFamily="Segoe UI Semilight" Click="Button_Click"/>
+        <Label Content="Monat:" Margin="10,10,159,228" FontSize="24" FontFamily="Microsoft JhengHei UI" FontWeight="Bold"/>
+        <Label Content="Jahr:" Margin="10,75,159,163" FontSize="24" FontFamily="Microsoft JhengHei UI" FontWeight="Bold"/>
+        <Label Content="Mitarbeiter:" Margin="10,140,159,98" FontSize="24" FontFamily="Microsoft JhengHei UI" FontWeight="Bold"/>
+        <ComboBox x:Name="monthCombo" Margin="169,10,10,239" FontSize="22" FontFamily="Microsoft JhengHei UI" SelectedIndex="0" SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBoxItem Content="Januar"/>
+            <ComboBoxItem Content="Februar"/>
+            <ComboBoxItem Content="März"/>
+            <ComboBoxItem Content="April"/>
+            <ComboBoxItem Content="Mai"/>
+            <ComboBoxItem Content="Juni"/>
+            <ComboBoxItem Content="Juli"/>
+            <ComboBoxItem Content="August"/>
+            <ComboBoxItem Content="September"/>
+            <ComboBoxItem Content="Oktober"/>
+            <ComboBoxItem Content="November"/>
+            <ComboBoxItem Content="Dezember"/>
+        </ComboBox>
+        <TextBox x:Name="yearText" PreviewTextInput="NumberValidationTextBox" Margin="169,77,66,174" TextWrapping="Wrap" Text="1995" FontSize="24" Cursor="IBeam" TextAlignment="Center" TextChanged="YearText_TextChanged"/>
+        <TextBox x:Name="employeeNumberText" PreviewTextInput="NumberValidationTextBox" Margin="171,140,64,111" TextWrapping="Wrap" Text="11" FontSize="24" Cursor="IBeam" TextAlignment="Center" TextChanged="EmployeeNumberText_TextChanged"/>
+        <Button Content="&lt;" Margin="287,140,40,111" Click="Button_Click_1"/>
+        <Button Content="&gt;" Margin="311,140,16,111" Click="Button_Click_2"/>
     </Grid>
 </Window>
