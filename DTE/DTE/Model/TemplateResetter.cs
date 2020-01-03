@@ -44,6 +44,8 @@ namespace DTE
             }
 
             //grey color for unused days
+            //skip if month has 31 days
+            if (days >= 31) return;
             ExcelInterface.EditCellColorInRange(
                  STARTING_COL + days, STARTING_ROW - 2, 
                  STARTING_COL + 30, STARTING_ROW + (numberEmployees * CELLS_IN_DAY) - 1,
