@@ -79,6 +79,8 @@ namespace DTE
 
                 for(int k = STARTING_ROW + 4; k < STARTING_ROW + (numberEmployees * CELLS_IN_DAY); k += 5)
                 {
+                    ExcelInterface.EditCellNumberFormat(i, k, "0");
+                    ExcelInterface.EditCellFontSize(i, k, 10);
                     ExcelInterface.EditCellValue(i, k, dayOfMonth + '.');
                 }
 

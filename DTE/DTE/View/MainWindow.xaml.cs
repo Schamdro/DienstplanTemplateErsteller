@@ -68,6 +68,7 @@ namespace DTE.View
             TemplateResetter.ResetEmployeeTableToWhite();
             TemplateResetter.FillInWeekdays();
             ExcelInterface.MakeVisible();
+            ExcelInterface.CollectGarbage();
         }
 
         private void EmployeeNumberText_TextChanged(object sender, TextChangedEventArgs e)

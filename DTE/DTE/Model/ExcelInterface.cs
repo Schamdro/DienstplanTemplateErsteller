@@ -40,6 +40,16 @@ namespace DTE
             _exApp.Cells[row, col] = value;
         }
 
+        public static void EditCellNumberFormat(int col, int row, string numberFormat)
+        {
+            _exApp.Range[_exApp.Cells[row, col], _exApp.Cells[row, col]].NumberFormat = numberFormat;
+        }
+
+        public static void EditCellFontSize(int col, int row, int value)
+        {
+            _exApp.Range[_exApp.Cells[row, col], _exApp.Cells[row, col]].Font.Size = value;
+        }
+
         public static void EditCellValueInRange(int colIdxStart, int rowIdxStart, int colIdxEnd, int rowIdxEnd, string value)
         {
             _exApp.Range[_exApp.Cells[rowIdxStart, colIdxStart], _exApp.Cells[rowIdxEnd, colIdxEnd]] = value;
@@ -55,7 +65,15 @@ namespace DTE
 
         public static void EditCellColor(int col, int row, Excel.XlRgbColor value)
         {
+            throw new NotImplementedException();
+        }
 
+        public static void CollectGarbage()
+        {
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
         }
     }
 }
