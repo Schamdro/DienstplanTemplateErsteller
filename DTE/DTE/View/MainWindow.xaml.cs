@@ -51,13 +51,19 @@ namespace DTE.View
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
+            if (e.Text == null) e.Handled = false;
+            e.Handled = IsNumber(e.Text);
+        }
+
+        private bool IsNumber(string text)
+        {
             Regex regex = new Regex("[^0-9]+");
-            e.Handled = regex.IsMatch(e.Text);
+            return regex.IsMatch(text);
         }
 
         private void YearText_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (yearText == null) return;
+            if (yearText == null || yearText.Text.Equals("")) return;
             TemplateResetter.SpecifyDate(monthCombo.SelectedIndex + 1, int.Parse(yearText.Text));
         }
 
@@ -73,7 +79,7 @@ namespace DTE.View
 
         private void EmployeeNumberText_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (employeeNumberText == null) return;
+            if (employeeNumberText == null || employeeNumberText.Text.Equals("")) return;
             TemplateResetter.numberEmployees = int.Parse(employeeNumberText.Text);
         }
 
