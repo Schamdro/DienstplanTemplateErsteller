@@ -24,17 +24,19 @@ namespace DTE
 
         public static void ResetEmployeeTableToWhite()
         {
+            //clear every cell in editable area
             ExcelInterface.EditCellValueInRange(
                 STARTING_COL, STARTING_ROW-2, 
                 STARTING_COL + 30, STARTING_ROW + (numberEmployees * CELLS_IN_DAY) - 1, 
                 string.Empty);
 
+            //color every cell in editable area white
             ExcelInterface.EditCellColorInRange(
                  STARTING_COL, STARTING_ROW-2, 
                  STARTING_COL + 30, STARTING_ROW + (numberEmployees * CELLS_IN_DAY) - 1,
                  Excel.XlRgbColor.rgbWhite);
 
-
+            //color every other employee slighty orange for contrast
             for (int i = STARTING_ROW + CELLS_IN_DAY; i < STARTING_ROW + (numberEmployees * CELLS_IN_DAY); i += 2 * CELLS_IN_DAY)
             {
                 ExcelInterface.EditCellColorInRange(
@@ -70,7 +72,15 @@ namespace DTE
 
             for(int i = STARTING_COL; i <= days + STARTING_COL - 1; i++)
             {
-                ExcelInterface.EditCellValue(i, STARTING_ROW - 1, i - STARTING_COL + 1 + ".");
+                //day of the month
+                string dayOfMonth = i - STARTING_COL + 1 + "";
+
+                ExcelInterface.EditCellValue(i, STARTING_ROW - 1, dayOfMonth + ".");
+
+                for(int k = STARTING_ROW + 4; k < STARTING_ROW + (numberEmployees * CELLS_IN_DAY); k += 5)
+                {
+                    ExcelInterface.EditCellValue(i, k, dayOfMonth + '.');
+                }
 
                 Weekday day = Weekday.EMPTY;
                 date = new DateTime(currentYear, (int)currentMonth, i - STARTING_COL + 1);
@@ -97,14 +107,14 @@ namespace DTE
                         ExcelInterface.EditCellColorInRange(
                             i, STARTING_ROW - 2,
                             i, STARTING_ROW + (numberEmployees * CELLS_IN_DAY) - 1,
-                            Excel.XlRgbColor.rgbSkyBlue);
+                            Excel.XlRgbColor.rgbPaleTurquoise);
                         break;
                     case DayOfWeek.Sunday:
                         day = Weekday.So;
                         ExcelInterface.EditCellColorInRange(
                             i, STARTING_ROW - 2,
                             i, STARTING_ROW + (numberEmployees * CELLS_IN_DAY) - 1,
-                            Excel.XlRgbColor.rgbSkyBlue);
+                            Excel.XlRgbColor.rgbPaleTurquoise);
                         break;
                     default: break;
                 }
