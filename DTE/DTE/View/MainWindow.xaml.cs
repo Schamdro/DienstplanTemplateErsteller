@@ -29,18 +29,6 @@ namespace DTE.View
 
             yearText.Text = "" + (DateTime.Today.Month < 12 ? DateTime.Today.Year : DateTime.Today.Year + 1);
             monthCombo.SelectedIndex = DateTime.Today.Month % 12;
-
-            //ExcelInterface.SetTemplatePath(_templatePath);
-            //ExcelInterface.OpenExcelApplication();
-
-            //TemplateResetter.SpecifyDate(2, 2020);
-
-            //TemplateResetter.numberEmployees = 11;
-            //TemplateResetter.ResetEmployeeTableToWhite();
-
-            //TemplateResetter.FillInWeekdays();
-            
-            //ExcelInterface.MakeVisible();
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
