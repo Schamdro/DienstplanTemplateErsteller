@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DTE"
         mc:Ignorable="d"
-        Title="Dienstplaninator" Height="326" Width="357" ResizeMode="CanMinimize">
+        Title="Dienstplaninator" Height="326" Width="357" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Grid Margin="0,0,0,0">
         <Rectangle Fill="#FFF4F4F5" Margin="10,9,10,10" Stroke="Black"/>
         <Button Content="Erstellen" Margin="10,0,10,10" Height="65" VerticalAlignment="Bottom" FontSize="36" FontFamily="Segoe UI Semilight" Click="Button_Click"/>
@@ -27,8 +27,8 @@
             <ComboBoxItem Content="Dezember"/>
         </ComboBox>
         <TextBox x:Name="yearText" PreviewTextInput="NumberValidationTextBox" Margin="169,77,66,174" TextWrapping="Wrap" Text="1995" FontSize="24" Cursor="IBeam" TextAlignment="Center" TextChanged="YearText_TextChanged"/>
-        <TextBox x:Name="employeeNumberText" PreviewTextInput="NumberValidationTextBox" Margin="171,140,64,111" TextWrapping="Wrap" Text="11" FontSize="24" Cursor="IBeam" TextAlignment="Center" TextChanged="EmployeeNumberText_TextChanged"/>
-        <Button Content="&lt;" Margin="287,140,40,111" Click="Button_Click_1"/>
-        <Button Content="&gt;" Margin="311,140,16,111" Click="Button_Click_2"/>
+        <TextBox x:Name="employeeNumberText" PreviewTextInput="NumberValidationTextBox" Margin="192,141,43,110" TextWrapping="Wrap" Text="11" FontSize="24" Cursor="IBeam" TextAlignment="Center" TextChanged="EmployeeNumberText_TextChanged"/>
+        <Button Content="&lt;" Margin="168,141,144,110" Click="Button_Click_1" RenderTransformOrigin="-6.542,0.543"/>
+        <Button Content="&gt;" Margin="292,141,19,110" Click="Button_Click_2" RenderTransformOrigin="-0.583,0.543"/>
     </Grid>
 </Window>
